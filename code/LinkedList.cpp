@@ -8,15 +8,15 @@
 #include <utility>
 
 
+
+
 List::List()
-	: first_(NULL)
-{
+	: first_(NULL){
 }
 
 
 List::List(const List & other)
-	: first_(clone(other.first_))
-{
+	: first_(clone(other.first_)) {
 }
 
 
@@ -29,10 +29,10 @@ List::~List()
 }
 
 
-const List & List::operator=(const List & other)
+const List & List::operator=(const List & other) 
 {
 	// check for list = list
-	if (&other != this)
+	if (&other != this) //
 	{
 		// clear the current contents of this List
 		this -> ~List();
@@ -44,15 +44,51 @@ const List & List::operator=(const List & other)
 }
 
 
-bool List::empty() const
-{
+bool List::empty() const{
 	return first_ == NULL;
 }
 
 
-void List::insertAsFirst(double x)
-{
+void List::insertAsFirst(double x){
 	first_ = new Node(x, first_);
+}
+
+double List::size()
+{
+	double count = 0;
+	if (!empty())
+	{
+		Node * tempPtr = first_;
+		while (tempPtr != NULL)
+		{
+
+			tempPtr = tempPtr->next_;
+			++count;
+		
+		}
+		return count;
+	}
+	
+}
+
+void List::insertAsLast(double x)
+{
+	int Nnum = 1;
+	double size = List::size();
+	if (empty())
+	{
+		first_ = new Node(x);
+	}
+	else {
+		Node *ptr = first_;
+		while (Nnum < size) {
+
+			ptr=ptr->next_;
+			Nnum++;
+		}
+			ptr->next_ = new Node(x);
+	}
+	
 }
 
 
@@ -65,8 +101,27 @@ double List::removeFirst()
 	return item;
 }
 
+double List::sum()
+{
+		double a = 0;
+	if (!empty())
+	{
+		
+		Node * ptr = first_;
+		while (ptr != NULL)
+		{
+			a = ptr->entry_ + a;
+			ptr = ptr->next_;
+			
+		}
+		return a;
+	}
+	return 0;
 
-void List::print(ostream & outfile) const
+}
+
+
+void List::print(ostream & outfile) const //
 {
 	outfile << "[ ";
 	if (!empty())

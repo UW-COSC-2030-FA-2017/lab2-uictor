@@ -15,7 +15,7 @@
 #include <iostream>
 using std::ostream;
 
-#include "Node.cpp"
+#include "Node.h"
 
 #define ulong unsigned long
 
@@ -65,6 +65,10 @@ public:
 	// post: the first double in this List has been removed
 	//         from this List and has been returned.
 	double removeFirst();
+
+	double size();
+	double sum();
+	void insertAsLast(double x);
 
 private:
 	//*** Inaccessible standard functions ***

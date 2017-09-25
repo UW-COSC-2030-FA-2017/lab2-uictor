@@ -6,17 +6,19 @@
 // Exercise the List class with verbose Node constructor
 //   and destructor.
 
-#include "LinkedList.cpp"
+#include "LinkedList.h"
 
 
 int main()
 {
+
 	List cows;
 	cout << "cows list  :  " << cows << endl << endl;
 
 	cows.insertAsFirst(1.23);
 	cows.insertAsFirst(2.34);
 	cout << "cows list  :  " << cows << endl << endl;
+	cout << "cows sum  :  " << cows.sum() << endl;
 
 	cows.removeFirst();
 	cout << "cows list  :  " << cows << endl << endl;
@@ -27,9 +29,12 @@ int main()
 
 	horses.removeFirst();
 	horses.insertAsFirst(5.67);
+	horses.insertAsLast(25);
+
 	cows.insertAsFirst(6.78);
 	cout << "cows list  :  " << cows << endl;
 	cout << "horses list:  " << horses << endl << endl;
+	cout << "horses size:" << horses.size() << endl;
 
 	List pigs;
 	cout << "cows list  :  " << cows << endl;
